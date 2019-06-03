@@ -1,16 +1,19 @@
 #banner{
-  background-color: #159cbd;
+  background-color: #3424a3;
   padding: 15px;
   color: #fff;
+  height: 150px;
 }
 
 #marca{
   align-self: center;
+  padding-top: 10px;
 }
 
 #logo{
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
+  margin-top: 25px;
 }
 
 #menu-lateral{
@@ -26,6 +29,9 @@
   color: #ffffff;
   background-color: #1fe70e;
   min-height: 300px;
+}
+#cont-pie{
+  width: 100%;
 }
 
 .fin{
@@ -63,6 +69,9 @@ ESTILOS PARA LA BARRA DE NAVEGACIÓN
 #sesion{
   height: 32px;
   align-self: center;
+}
+#sesion_text{
+  color: white;
 }
 
 @-webkit-keyframes chicle{
