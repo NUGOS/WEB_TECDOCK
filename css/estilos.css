@@ -1,4 +1,4 @@
-#banner{
+﻿#banner{
   background-color: #3424a3;
   padding: 15px;
   color: #fff;
@@ -70,6 +70,11 @@ ESTILOS PARA LA BARRA DE NAVEGACIÓN
 
 #sesion_text{
   color: white;
+}
+
+#carrusel{
+	width: 1925px;
+
 }
 
 @-webkit-keyframes chicle{
@@ -154,8 +159,8 @@ Imagenes
 }
 
 #anuncio3{
-	width: 1295px;
-  margin-top: 10px;
+	width: 100%;
+  /*margin-top: 10px;*/
   margin-bottom: 10px;
   opacity: 0;
 }
