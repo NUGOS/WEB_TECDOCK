@@ -30,9 +30,6 @@
   background-color: #1fe70e;
   min-height: 300px;
 }
-#cont-pie{
-  width: 100%;
-}
 
 .fin{
   text-align: center;
@@ -70,6 +67,7 @@ ESTILOS PARA LA BARRA DE NAVEGACIÓN
   height: 32px;
   align-self: center;
 }
+
 #sesion_text{
   color: white;
 }
@@ -139,4 +137,73 @@ PROPIEDADES ADICIONALES
 	top:0;
 	width:100%;
 	box-shadow:0px 4px 3px rgba(0,0,0,.5);
+}
+
+/*==================================================================================================
+Imagenes
+==================================================================================================*/
+#anuncio1{
+	width: 685px;
+  margin-right: 10px;
+  opacity: 0;
+}
+
+#anuncio2{
+	width: 600px;
+  opacity: 0;
+}
+
+#anuncio3{
+	width: 1295px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 0;
+}
+
+/*=================================================================================================
+ANIMACIONES Y MÁS
+=================================================================================================*/
+.e-izquierda{
+  animation: 2s e-izquierda 1 forwards;
+}
+
+@-webkit-keyframes e-izquierda{
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.e-derecha{
+  animation: 2s e-derecha 1 forwards;
+}
+
+@-webkit-keyframes e-derecha{
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.e-arriba{
+  animation: 2s e-arriba 1 forwards;
+}
+
+@-webkit-keyframes e-arriba{
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
