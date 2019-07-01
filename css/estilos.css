@@ -13,9 +13,25 @@
 #logo{
   height: 70px;
   width: 70px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
+#slogan{
+  color: rgb(164, 164, 164);
+}
+#prueba{
+  height: 100px;
+  width: 150px;
+  /* padding-right: 100px; */
+  margin-right: 100px;
+}
+
+#prueba2{
+  height: 100px;
+  width: 150px;
+  /* padding-left: 100px; */
+  margin-left: 100px;
+}
 #menu-lateral{
   background-color: #d50909;
 }
