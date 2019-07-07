@@ -40,3 +40,10 @@ $(document).ready(function () {
 $.fn.scrollBottom = function() {
     return this.scrollTop() + this.height();
 };
+
+function abrir_tienda(){
+  document.location.href='tienda.html';
+  if (localStorage.getItem("user") == null) {
+    alert("No has iniciado Sesión, hazlo para recibir ofertas especiales");
+  }
+};
