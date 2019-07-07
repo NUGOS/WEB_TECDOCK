@@ -1,4 +1,7 @@
-﻿#banner{
+#hola1{
+  background-color: rgb(145, 221, 31);
+}
+#banner{
   background-color: #3424a3;
   padding: 15px;
   color: #fff;
@@ -46,6 +49,7 @@
   background-color: #1fe70e;
   min-height: 300px;
 }
+
 
 .fin{
   text-align: center;
