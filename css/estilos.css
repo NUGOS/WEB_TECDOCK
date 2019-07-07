@@ -93,7 +93,7 @@ ESTILOS PARA LA BARRA DE NAVEGACIÓN
 }
 
 #carrusel{
-	width: 1925px;
+	width: 100%;
 
 }
 
@@ -168,13 +168,13 @@ PROPIEDADES ADICIONALES
 Imagenes
 ==================================================================================================*/
 #anuncio1{
-	width: 685px;
+	width: 100%;
   margin-right: 10px;
   opacity: 0;
 }
 
 #anuncio2{
-	width: 600px;
+	width: 100%;
   opacity: 0;
 }
 
@@ -232,4 +232,29 @@ ANIMACIONES Y MÁS
     transform: translateY(0%);
     opacity: 1;
   }
+}
+
+/*============================================================================
+TIENDA
+============================================================================*/
+
+.prod{
+    width: 150px;
+    height: 150px;
+    /* margin-left: 25px; */
+}
+
+#anuntien{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/*===========================================================================
+BOOTSTRAP
+===========================================================================*/
+
+.revista{
+  overflow: hidden;
+  width: 100%;
+  height: 10%;
 }
