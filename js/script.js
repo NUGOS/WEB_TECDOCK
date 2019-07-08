@@ -56,6 +56,7 @@ function agregar(id){
     var cantidad;
     var cod;
     var monto;
+    var sig;
 
     switch (id) {
       case "#btn_prod01":
@@ -64,6 +65,7 @@ function agregar(id){
         precio = 700;
         cantidad = $("#p1").text();
         monto = parseInt(precio)*parseInt(cantidad);
+        sig = 'prod01.html';
         break;
       case "#btn_prod02":
         cod= "#p2";
@@ -71,6 +73,7 @@ function agregar(id){
         precio = 800;
         cantidad = $("#p2").text();
         monto = parseInt(precio)*parseInt(cantidad);
+        sig = 'prod02.html';
         break;
       case "#btn_prod03":
         cod= "#p3";
@@ -78,6 +81,7 @@ function agregar(id){
         precio = 2700;
         cantidad = $("#p3").text();
         monto = parseInt(precio)*parseInt(cantidad);
+        sig = 'prod03.html';
         break;
       case "#btn_prod04":
         cod= "#p4";
@@ -85,6 +89,7 @@ function agregar(id){
         precio = 900;
         cantidad = $("#p4").text();
         monto = parseInt(precio)*parseInt(cantidad);
+        sig = 'prod04.html';
         break;
       case "#btn_prod05":
         cod= "#p5";
@@ -92,6 +97,7 @@ function agregar(id){
         precio = 700;
         cantidad = $("#p5").text();
         monto = parseInt(precio)*parseInt(cantidad);
+        sig = 'prod05.html';
         break;
       case "#btn_prod06":
         cod= "#p6";
@@ -99,6 +105,7 @@ function agregar(id){
         precio = 500;
         cantidad = $("#p6").text();
         monto = parseInt(precio)*parseInt(cantidad);
+        sig = 'prod06.html';
         break;
     }
 
@@ -107,7 +114,7 @@ function agregar(id){
     console.log("Precio: ", precio);
     guardarItem(cod,producto,cantidad, precio, monto);
     $(id).attr("disabled", true);
-    document.location.href='tienda-personalizar.html';
+    document.location.href=sig;
 }
 
 function guardarItem(cod,producto,cantidad,precio,monto)
