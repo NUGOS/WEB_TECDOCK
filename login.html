@@ -52,7 +52,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="nosotros.html">Nosotros</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                   <a class="nav-link" href="contacto.html">Contacto</a>
                 </li>
               </ul>
@@ -60,7 +60,7 @@
           </nav>
 
           <div class="row no-gutters align-self-start mt-2 mr-3">
-            <a class="nav-link align-self-center" id="sesion_text" href="#">Iniciar Sesión</a>
+            <a class="nav-link align-self-center active" id="sesion_text" href="login.html">Iniciar Sesión</a>
             <img src="src/user.png" id="sesion">
           </div>
         </div>
@@ -76,34 +76,45 @@
 
       <div class="col" id="contenido">
         <!-- <div class="error">:( 404 NOT FOUND</div> -->
-        <form>
-<div class="form-row align-items-center">
-  <div class="col-auto">
-    <label class="sr-only" for="inlineFormInput">Name</label>
-    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
-  </div>
-  <div class="col-auto">
-    <label class="sr-only" for="inlineFormInputGroup">Username</label>
-    <div class="input-group mb-2">
-      <div class="input-group-prepend">
-        <div class="input-group-text">@</div>
-      </div>
-      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-    </div>
-  </div>
-  <div class="col-auto">
-    <div class="form-check mb-2">
-      <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-      <label class="form-check-label" for="autoSizingCheck">
-        Remember me
-      </label>
-    </div>
-  </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-  </div>
-</div>
-</form>
+        <form class="">
+          <div class="form-row justify-content-center">
+            <div class="col-4 mt-3 mb-3" align="center">
+              <div class="card p-3 border-dark">
+                <h5>INICIO DE SESIÓN</h5>
+                <img src="src/login.png" alt="" id="login">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2">
+                     <div class="input-group-prepend">
+                       <div class="input-group-text">@</div>
+                     </div>
+                        <input type="text" class="form-control" placeholder="Usuario">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2">
+                     <div class="input-group-prepend">
+                       <div class="input-group-text">#</div>
+                     </div>
+                        <input type="password" class="form-control"  placeholder="Contraseña">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check mb-2 mr-sm-2">
+                       <input class="form-check-input" type="checkbox" >
+                       <label class="form-check-label" for="inlineFormCheck">
+                         Recordar mi contraseña
+                       </label>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-md">INICIAR SESIÓN</button><br><br>
+                    Ó <a href="#">Registrarse</a>
+                  </div>
+              </div>
+              </div>
+            </div>
+        </form>
+
       </div>
 
     </div>

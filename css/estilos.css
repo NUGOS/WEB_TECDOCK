@@ -1,6 +1,4 @@
-#hola1{
-  background-color: rgb(145, 221, 31);
-}
+
 #banner{
   background-color: #3424a3;
   padding: 15px;
@@ -49,7 +47,12 @@
   background-color: #1fe70e;
   min-height: 300px;
 }
-
+#login{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
 .fin{
   text-align: center;
