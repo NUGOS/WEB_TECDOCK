@@ -65,24 +65,138 @@
       </div>
     </div>
 
-    <div class="col">
-      <h3 class="mt-3">Carrito de Compra</h3>
+    <div class="row">
+      <div class="col-lg-10 col-sm-12 col-md-12">
+        <h3 class="mt-3">Carrito de Compra</h3>
 
-      <div class="table-responsive">
-        <table class="table table-striped">
-            <thead class='thead-dark'>
+        <div class="table-responsive">
+          <table class="table table-striped">
+              <thead class='thead-dark'>
+                <tr>
+                  <th>#</th>
+                  <th>PRODUCTO</th>
+                  <th>PRECIO UNITARIO</th>
+                  <th colspan=2>CANTIDAD</th>
+                  <th>PRECIO TOTAL</th>
+                  <th>-</th>
+                </tr>
+              </thead>
+              <tbody id = "tblDatos">
+              </tbody>
+          </table>
+
+          <h5 class="mt-5 mb-3">Resumen del Pedido: </h5>
+          <table class="table">
+            <tbody id = "tblPedido">
               <tr>
-                <th>#</th>
-                <th>PRODUCTO</th>
-                <th>PRECIO UNITARIO</th>
-                <th colspan=2>CANTIDAD</th>
-                <th>PRECIO TOTAL</th>
-                <th>-</th>
+                <td>Tipo de Pedido: </td>
+                <td>
+                  <select id="cboTPedido" class="btn dropdown-toggle dropdown-toggle-split" onchange="calcPedido()">
+                    <option value="0">Normal</option>
+                    <option value="1">Lento</option>
+                    <option value="2">Premiun</option>
+                  </select>
+                </td>
               </tr>
-            </thead>
-            <tbody id = "tblDatos">
+
+              <tr>
+                <td>Tiempo de entrega: </td>
+                <td id="time"></td>
+              </tr>
+
+              <tr>
+                <td>Costo de Productos + Envio: </td>
+                <td id="cost"></td>
+              </tr>
             </tbody>
-        </table>
+          </table>
+          <div class="form-check mb-3 ml-3">
+            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+            <label class="form-check-label" for="autoSizingCheck">
+              He leído y Acepto los términos y condiciones
+            </label>
+          </div>
+          <button type="button" name="button" class="btn btn-success btn-block mb-5" onclick="realizarCompra()">REALIZAR PEDIDO</button>
+          <a class="nav-link" href="Compras.html" target="_blank" onclick="window.open(this.href, this.target, 'width=700,height=300'); return false;">Lista Compras</a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-sm-12 col-md-12 mt-5">
+        <div class="container">
+        	<div class="row">
+                <div class="span12">
+            		<table class="table-condensed table-bordered table-striped">
+                        <thead>
+                            <tr>
+                              <th colspan="7">
+                                <span class="btn-group">
+                                    <a class="btn"><i class="icon-chevron-left"></i></a>
+                                	<a class="btn active">Julio 2018</a>
+                                	<a class="btn"><i class="icon-chevron-right"></i></a>
+                                </span>
+                              </th>
+                            </tr>
+                            <tr>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>M</th>
+                                <th>M</th>
+                                <th>J</th>
+                                <th>V</th>
+                                <th>S</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="btn-primary"><strong>8</strong></td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td>27</td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td>29</td>
+                                <td>29</td>
+                                <td>30</td>
+                                <td>31</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        	</div>
+        </div>
       </div>
     </div>
 

@@ -42,6 +42,7 @@ $.fn.scrollBottom = function() {
 };
 
 var carro;
+var userActive;
 
 function abrir_tienda(){
   document.location.href='tienda.html';
@@ -264,58 +265,143 @@ function listar()
     $("#tblDatos").append(fila);
 }
 
+function calcPedido(){
+  var val = document.getElementById("cboTPedido").value;
+
+  if(val == 0){
+    $("#time").text("15-20 días");
+    $("#cost").text("s/ "+ (parseInt(total)+parseInt(100)));
+  }
+  if(val == 1){
+    $("#time").text("20-45 días");
+    $("#cost").text("s/ "+ (parseInt(total)+parseInt(50)));
+  }
+  if(val == 2){
+    $("#time").text("7-10 días");
+    $("#cost").text("s/ "+ (parseInt(total)+parseInt(150)));
+  }
+}
+
 function realizarCompra()
 {
   if(localStorage.getItem("grup_3") != null)
   {
-    var nombre = $("#txtNombre").val();
-    var correo = $("#txtCorreo").val();
-    var pais = $("#cboPais").val();
-
-    if(nombre == ""){
-      alert("Complete su nombre por favor");
-      $("#txtNombre").focus();
+    if(userActive != null)
+    {
+      guardarCompra(userActive);
     }else{
-      if(correo == ""){
-        alert("Complete su correo por favor");
-        $("#txtCorreo").focus();
-      }else{
-        if(pais == null){
-          alert("Selecciones su país por favor");
-          $("#cboPais").focus();
-        }else{
-          guardarCompra(nombre, correo, pais);
-        }
-      }
+      document.location.href='login.html';
     }
   }else{
-    alert("NO HA SELECCIONADO NINGÚN PRODUCTO");
+    alert("NO HA AÑADIDO NINGÚN PRODUCTO A SU PEDIDO");
   }
 
 }
 
-function guardarCompra(nombre, correo, pais)
+function guardarCompra(nombre)
 {
   var arrayTabla;
   //Verificar si nuestra variable datos no existe
-  if(localStorage.getItem("compra") == null)
+  if(localStorage.getItem("comp_grup3") == null)
   {
-      var arrayFila = [1, nombre, correo, pais, localStorage.getItem("datos"), total];
+      var arrayFila = [1, nombre, localStorage.getItem("grup_3"), total];
       arrayTabla = [arrayFila];
       var arrayTableJSON = JSON.stringify(arrayTabla);
-      localStorage.setItem("compra", arrayTableJSON);
+      localStorage.setItem("comp_grup3", arrayTableJSON);
   }else
   {
-      var arrayTabla = JSON.parse(localStorage.getItem("compra"));
+      var arrayTabla = JSON.parse(localStorage.getItem("comp_grup3"));
 
       // Insertar array a tabla
-      var arrayFilaInsertar = [(parseInt(arrayTabla.length)+1), nombre, correo, pais, localStorage.getItem("datos"), total];
+      var arrayFilaInsertar = [(parseInt(arrayTabla.length)+1), nombre, localStorage.getItem("grup_3"), total];
       arrayTabla.push(arrayFilaInsertar);
 
       // Convertir array a JSON(cadena) y guardar en localStorage
-      localStorage.setItem("compra", JSON.stringify(arrayTabla));
+      localStorage.setItem("comp_grup3", JSON.stringify(arrayTabla));
   }
 
-  alert("Su compra ha sido Registrada\n" + nombre + "-" + pais + "\n" + correo + "\nTotal de la compra: " + total);
+  alert("Su compra ha sido Registrada\n" + nombre + "\nTotal de la compra: " + total);
   limpiar();
 }
+
+function limpiar(){
+  localStorage.removeItem("grup_3");
+  listar();
+}
+
+function mostrarCompras()
+{
+  var monto=0;
+  $("#tblCompra").html("");
+  if(localStorage.getItem("comp_grup3") != null)
+  {
+      var arrayTabla = JSON.parse(localStorage.getItem("comp_grup3"));
+      for(var i = 0; i<arrayTabla.length; i++)
+      {
+          if(arrayTabla[i][1] == userActive){
+            // Crear fila
+            var fila = "";
+            fila += "<tr>";
+            fila += "<td>"+arrayTabla[i][0]+"</td>";
+            fila += "<td>"+arrayTabla[i][1]+"</td>";
+            fila += "<td> s/ "+arrayTabla[i][3]+"</td>";
+            fila+="<td>"+'<button class="btn btn-sm btn-danger" onclick="eliminarC('+arrayTabla[i][0]+')">X</button></td>';
+            fila += "</tr>";
+
+            monto += arrayTabla[i][3];
+            $("#tblCompra").append(fila);
+          }
+      }
+  }
+  var fila = "";
+  fila += "<tr>";
+  fila += "<th colspan=2>"+"Total:"+"</th>";
+  fila += "<th>s/ "+monto+"</th>";
+  fila += "<td></td>";
+  fila += "</tr>";
+  $("#tblCompra").append(fila);
+}
+
+function eliminarC(id)
+{
+    if(localStorage.getItem("comp_grup3") != null)
+    {
+        var arrayTabla = JSON.parse(localStorage.getItem("comp_grup3"));
+
+        for(var i = 0; i<arrayTabla.length; i++)
+        {
+            if(arrayTabla[i][0] == id)
+            {
+                arrayTabla.splice(i, 1);
+            }
+        }
+        localStorage.setItem("comp_grup3", JSON.stringify(arrayTabla));
+        mostrarCompras();
+    }
+}
+// function registrar(){
+//   if(localStorage.getItem("user") == null)
+//   {
+//       var arrayFila = [1, "Admin", "admin"];
+//       arrayTabla = [arrayFila];
+//       var arrayTableJSON = JSON.stringify(arrayTabla);
+//       localStorage.setItem("user", arrayTableJSON);
+//       pruebaSesion();
+//   }else
+//   {
+//       var arrayTabla = JSON.parse(localStorage.getItem("user"));
+//
+//       // Insertar array a tabla
+//       var arrayFilaInsertar = [(parseInt(arrayTabla.length)+1), "Admin2", "admin"];
+//       arrayTabla.push(arrayFilaInsertar);
+//
+//       // Convertir array a JSON(cadena) y guardar en localStorage
+//       localStorage.setItem("user", JSON.stringify(arrayTabla));
+//       pruebaSesion();
+//   }
+// }
+//
+// function pruebaSesion(){
+//   userActive = "Admin";
+//   alert(userActive);
+// }
