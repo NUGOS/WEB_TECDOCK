@@ -288,7 +288,9 @@ function realizarCompra()
   {
     if(userActive != null)
     {
-      guardarCompra(userActive);
+      if( $('#terminos').prop('checked') ) {
+          guardarCompra(userActive);
+      }
     }else{
       document.location.href='login.html';
     }
@@ -379,6 +381,22 @@ function eliminarC(id)
         mostrarCompras();
     }
 }
+
+function login(){
+  if(localStorage.getItem("user") != null){
+    var arrayTabla = JSON.parse(localStorage.getItem("user"));
+
+    for(var i = 0; i<arrayTabla.length; i++)
+    {
+        if(arrayTabla[i][3] == 'activo')
+        {
+            userActive = arrayTabla[i][1];
+            $('#sesion_text').text(userActive);
+        }
+    }
+  }
+}
+
 // function registrar(){
 //   if(localStorage.getItem("user") == null)
 //   {
@@ -401,7 +419,3 @@ function eliminarC(id)
 //   }
 // }
 //
-// function pruebaSesion(){
-//   userActive = "Admin";
-//   alert(userActive);
-// }

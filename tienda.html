@@ -29,26 +29,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">INICIO</a>
+                </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">INICIO</a>
+                  <a class="nav-link" href="NOTFOUND.html">Noticias</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Noticias<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" onclick="#">Tienda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="tienda.html">Tienda</a>
+                  <a class="nav-link" href="NOTFOUND.html">Servicios</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Servicios</a>
+                  <a class="nav-link" href="faqs.html">FAQ's</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">FAQ's</a>
+                  <a class="nav-link" href="foro.html">Foro</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Foro</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Nosotros</a>
+                  <a class="nav-link" href="nosotros.html">Nosotros</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contacto.html">Contacto</a>
@@ -58,8 +58,9 @@
           </nav>
 
           <div class="row no-gutters align-self-start mt-2 mr-3">
-            <a class="nav-link align-self-center" id="sesion_text" href="#">Iniciar Sesión</a>
+            <a class="nav-link" id="sesion_text" href="login.html">Iniciar Sesión</a>
             <img src="src/user.png" id="sesion">
+            <a href="carrito.html"><img src="src/carrito.png" id="sesion" class="ml-3"></a>
           </div>
         </div>
       </div>
@@ -239,5 +240,8 @@
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/script.js"></script>
+  <script type="text/javascript">
+    login();
+  </script>
 </body>
 </html>
