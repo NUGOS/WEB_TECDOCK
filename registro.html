@@ -7,6 +7,13 @@
   <title>TECDOCK</title>
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link href="css/bootstrap-datepicker.css" rel="stylesheet">
+  <script>
+      $( document ).ready(function() {
+      $('#fecha').datepicker();
+    });
+  </script>
+
 </head>
 <body>
   <div class="container-fluid">
@@ -20,8 +27,6 @@
           <img src="src/prueba2.png" id="prueba2">
           <div class="w-100"></div>
           <h4 id="slogan">Soluciones tecnológicas y mucho mas...</h4>
-
-
         </div>
 
         <div class="row justify-content-between" id="navegacion">
@@ -52,7 +57,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="nosotros.html">Nosotros</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="contacto.html">Contacto</a>
                 </li>
               </ul>
@@ -60,7 +65,7 @@
           </nav>
 
           <div class="row no-gutters align-self-start mt-2 mr-3">
-            <a class="nav-link align-self-center active" id="sesion_text" href="login.html">Iniciar Sesión</a>
+            <a class="nav-link align-self-center" id="sesion_text" href="login.html">Iniciar Sesión</a>
             <img src="src/user.png" id="sesion">
           </div>
         </div>
@@ -76,49 +81,69 @@
 
       <div class="col" id="contenido">
         <!-- <div class="error">:( 404 NOT FOUND</div> -->
-        <form class="">
-          <div class="form-row justify-content-center">
-            <div class="col-4 mt-3 mb-3" align="center">
-              <div class="card p-3 border-dark">
-                <h4>INICIO DE SESIÓN</h4>
-                <hr>
-                <img src="src/login.png" alt="" id="login">
-                <div class="form-group">
-                  <div class="input-group mb-2 mr-sm-2">
-                     <div class="input-group-prepend">
-                       <div class="input-group-text">@</div>
-                     </div>
-                        <input type="text" class="form-control" placeholder="Usuario">
-                  </div>
+            <br>
+            <br>
+            <form>
+              <div class="form-row justify-content-center">
+                <div class="col-8">
+                  <h3>REGISTRO</h3>
+                  <hr>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="registro_nombre">Nombre</label>
+                        <input type="text" class="form-control" id="registro_nombre" placeholder="Escriba su nombre...">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="registro_apellido">Apellido</label>
+                        <input type="text" class="form-control" id="registro_apellido" placeholder="Escriba su apellido...">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="registro_usuario">Usuario</label>
+                        <input type="text" class="form-control" id="registro_usuario" placeholder="Escriba un usuario...">
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="registro_contraseña">Contraseña</label>
+                        <input type="password" class="form-control" id="registro_contraseña" placeholder="Escriba una contraseña...">
+                      </div>
+                    </div>
+                      <input type="text" id="fecha" name="fecha" />
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
                 </div>
-                <div class="form-group">
-                  <div class="input-group mb-2 mr-sm-2">
-                     <div class="input-group-prepend">
-                       <div class="input-group-text">#</div>
-                     </div>
-                        <input type="password" class="form-control"  placeholder="Contraseña">
-                  </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check mb-2 mr-sm-2">
-                       <input class="form-check-input" type="checkbox" >
-                       <label class="form-check-label" for="inlineFormCheck">
-                         Recordar mi contraseña
-                       </label>
-                     </div>
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-md">INICIAR SESIÓN</button><br><br>
-                    Ó <a href="registro.html">Registrarse</a>
-                  </div>
               </div>
-              </div>
-            </div>
-        </form>
-
+              <br>
+            </form>
+            <br>
       </div>
 
     </div>
+
     <div class="row bg-dark pt-5 pl-2 pr-2 pb-2 justify-content-center" id="pie">
       <div class="col">
         <h5>Donaciones:</h5>
@@ -174,6 +199,9 @@
 
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/script.js"></script>
+
+
 </body>
 </html>
