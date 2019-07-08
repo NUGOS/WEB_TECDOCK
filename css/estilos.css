@@ -91,7 +91,7 @@ ESTILOS PARA LA BARRA DE NAVEGACIÓN
   align-self: center;
 }
 
-#sesion_text{
+#sesion_text, #nomU{
   color: white;
 }
 
