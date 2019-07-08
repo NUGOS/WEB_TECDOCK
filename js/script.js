@@ -288,8 +288,15 @@ function realizarCompra()
   {
     if(userActive != null)
     {
-      if( $('#terminos').prop('checked') ) {
-          guardarCompra(userActive);
+      var val = $('#time').text();
+      if (val != '') {
+        if( $('#terminos').prop('checked') ) {
+            guardarCompra(userActive);
+        }else{
+          alert("Acepte los términos y condiciones");
+        }
+      }else{
+        alert("Seleccione un tipo de envio");
       }
     }else{
       document.location.href='login.html';
@@ -340,7 +347,7 @@ function mostrarCompras()
       var arrayTabla = JSON.parse(localStorage.getItem("comp_grup3"));
       for(var i = 0; i<arrayTabla.length; i++)
       {
-          if(arrayTabla[i][1] == userActive){
+          if(arrayTabla[i][4] == userActive){
             // Crear fila
             var fila = "";
             fila += "<tr>";
