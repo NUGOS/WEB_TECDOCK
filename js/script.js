@@ -60,7 +60,6 @@ function agregar(id){
     var cantidad;
     var cod;
     var monto;
-    var sig;
 
     switch (id) {
       case "#btn_prod01":
@@ -107,11 +106,8 @@ function agregar(id){
         break;
     }
 
-    // Mostrar en consola
-    console.log("Producto: ", producto);
-    console.log("Precio: ", precio);
     guardarItem(cod,producto,cantidad, precio, monto);
-    $(id).attr("disabled", true);
+    document.location.href='carrito.html';
 }
 
 function guardarItem(cod,producto,cantidad,precio,monto)
@@ -155,7 +151,6 @@ function eliminar(id)
         {
             if(arrayTabla[i][0] == id)
             {
-              valBtn(arrayTabla[i][2]);
               arrayTabla.splice(i, 1);
             }
         }
@@ -175,38 +170,26 @@ function cantidad(s,id){
         cont=cont+1;
       }
       $(id).text(cont);
-      actualizar(id,cont);
-      listar();
 }
 
-function btnAll(){
-  for(var i=1;i<7;i++){
-    var cod = "#btn_prod0"+i;
-    var cod2 = "#p"+i;
-    $(cod2).text("1");
-    $(cod).attr("disabled", false);
-  }
-}
+function actualizar(cod,can){
+  if(localStorage.getItem("datos") != null)
+  {
+      var arrayTabla = JSON.parse(localStorage.getItem("datos"));
+      for(var i = 0; i<arrayTabla.length; i++)
+      {
 
-function valBtn(producto){
-  switch (producto) {
-    case "Xiaomi Mi A2":
-      $("#btn_prod01").attr("disabled", false);
-      break;
-    case "Xiaomi Mi 8 Se":
-      $("#btn_prod02").attr("disabled", false);
-      break;
-    case "Xiaomi Mi 9":
-      $("#btn_prod03").attr("disabled", false);
-      break;
-    case "Redmi Note 7":
-      $("#btn_prod04").attr("disabled", false);
-      break;
-    case "Redmi Note 6 Pro":
-      $("#btn_prod05").attr("disabled", false);
-      break;
-    case "Xiaomi Mi A2 Lite":
-      $("#btn_prod06").attr("disabled", false);
-      break;
-  }
+          if(arrayTabla[i][1] == cod)
+          {
+            var arrayFila = arrayTabla[i];
+            var precio = parseInt(arrayFila[4])
+            var monto = precio*can;
+            arrayFila.splice(3, 1,can);
+            arrayFila.splice(5, 1,monto);
+            arrayTabla.splice(i,1,arrayFila)
+
+          }
+      }
+      localStorage.setItem("datos", JSON.stringify(arrayTabla));
+    }
 }
