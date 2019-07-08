@@ -13,6 +13,24 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/script.js"></script>
   <script>
+
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+</script>
+  <script>
   $(function() {
     $('#txtfecha').datepicker({
 
@@ -57,7 +75,7 @@
                   <a class="nav-link" href="#">FAQ's</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Foro</a>
+                  <a class="nav-link" href="foro.html">Foro</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="nosotros.html">Nosotros</a>
@@ -88,7 +106,7 @@
         <!-- <div class="error">:( 404 NOT FOUND</div> -->
             <br>
             <br>
-            <form>
+            <form class="needs-validation" novalidate>
               <div class="form-row justify-content-center">
                 <div class="col-8">
                   <h3>REGISTRO</h3>
@@ -96,36 +114,72 @@
                   <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="registro_nombre">Nombre</label>
-                        <input type="text" class="form-control" id="registro_nombre" placeholder="Escriba su nombre...">
+                        <input type="text" class="form-control" id="registro_nombre" placeholder="Escriba su nombre..."  required>
+                        <div class="valid-feedback">
+                          Lindo nombre! :)
+                        </div>
+                        <div class="invalid-feedback">
+                          Necesitamos saber como te llamas!
+                        </div>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="registro_apellido">Apellido</label>
-                        <input type="text" class="form-control" id="registro_apellido" placeholder="Escriba su apellido...">
+                        <input type="text" class="form-control" id="registro_apellido" placeholder="Escriba su apellido..." required>
+                        <div class="valid-feedback">
+                          Todo bien!
+                        </div>
+                        <div class="invalid-feedback">
+                          Tu nombre completo porfavor :(
+                        </div>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-6">
                         <label for="registro_usuario">Usuario</label>
-                        <input type="text" class="form-control" id="registro_usuario" placeholder="Escriba un usuario...">
+                        <input type="text" class="form-control" id="registro_usuario" placeholder="Escriba un usuario..." required>
+                        <div class="valid-feedback">
+                          Todo correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                          Este será tu apodo dentro de TecDock
+                        </div>
                       </div>
                       <div class="form-group col-6">
                         <label for="registro_contraseña">Contraseña</label>
-                        <input type="password" class="form-control" id="registro_contraseña" placeholder="Escriba una contraseña...">
+                        <input type="password" class="form-control" id="registro_contraseña" placeholder="Escriba una contraseña..." required>
+                        <div class="valid-feedback">
+                          Seguridad ante todo!
+                        </div>
+                        <div class="invalid-feedback">
+                          Oh no,eso no parece seguro!
+                        </div>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-4">
                         <label for="inputState">Fecha de nacimiento</label>
-                          <input type="text" id="txtfecha" class="form-control" placeholder="Seleccionar..." readonly >
+                          <input type="text" id="txtfecha" class="form-control" placeholder="Seleccionar..." required>
+                          <div class="valid-feedback">
+                            Cuando llegue el dia te felicitaremos!
+                          </div>
+                          <div class="invalid-feedback">
+                            Es para conocerte más!
+                          </div>
                       </div>
 
                     </div>
                     <div class="form-group">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <input class="form-check-input" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
                           Acepto los terminos y condiciones.
                         </label>
+                        <div class="valid-feedback">
+                          Que alegría!
+                        </div>
+                        <div class="invalid-feedback">
+                          :(
+                        </div>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-success">REGISTRARME</button>
