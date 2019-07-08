@@ -388,34 +388,41 @@ function login(){
 
     for(var i = 0; i<arrayTabla.length; i++)
     {
-        if(arrayTabla[i][3] == 'activo')
+        if(arrayTabla[i][6] == 1)
         {
-            userActive = arrayTabla[i][1];
+            userActive = arrayTabla[i][3];
             $('#sesion_text').text(userActive);
         }
     }
   }
 }
 
-// function registrar(){
-//   if(localStorage.getItem("user") == null)
-//   {
-//       var arrayFila = [1, "Admin", "admin"];
-//       arrayTabla = [arrayFila];
-//       var arrayTableJSON = JSON.stringify(arrayTabla);
-//       localStorage.setItem("user", arrayTableJSON);
-//       pruebaSesion();
-//   }else
-//   {
-//       var arrayTabla = JSON.parse(localStorage.getItem("user"));
-//
-//       // Insertar array a tabla
-//       var arrayFilaInsertar = [(parseInt(arrayTabla.length)+1), "Admin2", "admin"];
-//       arrayTabla.push(arrayFilaInsertar);
-//
-//       // Convertir array a JSON(cadena) y guardar en localStorage
-//       localStorage.setItem("user", JSON.stringify(arrayTabla));
-//       pruebaSesion();
-//   }
-// }
-//
+function registrar(){
+  if($('#gridCheck').prop('checked')){
+    if(localStorage.getItem("user") == null)
+    {
+        var arrayFila = [1, document.getElementById("registro_nombre").value, document.getElementById("registro_apellido").value, document.getElementById("registro_usuario").value, document.getElementById("registro_contraseña").value, document.getElementById("txtfecha").value, 1];
+        arrayTabla = [arrayFila];
+        var arrayTableJSON = JSON.stringify(arrayTabla);
+        localStorage.setItem("user", arrayTableJSON);
+    }else
+    {
+        var arrayTabla = JSON.parse(localStorage.getItem("user"));
+
+        // Insertar array a tabla
+        var arrayFilaInsertar = [(parseInt(arrayTabla.length)+1), document.getElementById("registro_nombre").value, document.getElementById("registro_apellido").value, document.getElementById("registro_usuario").value, document.getElementById("registro_contraseña").value, document.getElementById("txtfecha").value,1];
+        arrayTabla.push(arrayFilaInsertar);
+
+        // Convertir array a JSON(cadena) y guardar en localStorage
+        localStorage.setItem("user", JSON.stringify(arrayTabla));
+
+        for(var i = 0; i<arrayTabla.length-1; i++)
+        {
+            arrayTabla[i][6] == 0;
+        }
+    }
+  }else{
+    alert("Acepte los términos por favor");
+  }
+  document.location.href='index.html'
+}
